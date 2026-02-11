@@ -1,0 +1,33 @@
+# =========================
+# OS Files
+# =========================
+.DS_Store
+Thumbs.db
+
+# =========================
+# Lens Studio Generated
+# =========================
+Cache/
+Build/
+Exports/
+
+# Machine-specific folders
+Workspaces/
+PluginsUserPreferences/
+
+# =========================
+# Logs
+# =========================
+*.log
+
+# =========================
+# Editor Config
+# =========================
+.vscode/
+.idea/
+
+# =========================
+# Node / TypeScript (if used)
+# =========================
+node_modules/
+dist/
