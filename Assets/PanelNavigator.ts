@@ -9,7 +9,7 @@ export class PanelNavigator extends BaseScriptComponent {
   changeSizePanel: SceneObject | undefined;
 
   @input
-  thirdPanel: SceneObject | undefined;
+  changeColorPanel: SceneObject | undefined;
 
   @input
   nextButton: BaseButton | undefined;
@@ -30,7 +30,7 @@ export class PanelNavigator extends BaseScriptComponent {
     print("=== PanelNavigator Starting ===");
     print("spawnShapePanel assigned: " + (this.spawnShapePanel !== undefined));
     print("changeSizePanel assigned: " + (this.changeSizePanel !== undefined));
-    print("thirdPanel assigned: " + (this.thirdPanel !== undefined));
+    print("changeColorPanel assigned: " + (this.changeColorPanel !== undefined));
     
     // Hide all panels first
     this.hideAllPanels();
@@ -52,12 +52,12 @@ export class PanelNavigator extends BaseScriptComponent {
       print("WARNING: NextButton 1 is not assigned!");
     }
 
-    // Setup second next button to switch to ThirdPanel
+    // Setup second next button to switch to ChangeColorPanel
     if (this.nextButton2) {
       print("NextButton 2 connected");
       this.nextButton2.onTriggerUp.add(() => {
-        print("NextButton 2 pressed - switching to ThirdPanel");
-        this.switchToThirdPanel();
+        print("NextButton 2 pressed - switching to ChangeColorPanell");
+        this.switchToChangeColorPanel();
       });
     } else {
       print("WARNING: NextButton 2 is not assigned!");
@@ -74,9 +74,9 @@ export class PanelNavigator extends BaseScriptComponent {
       this.changeSizePanel.enabled = false;
       print("  - changeSizePanel disabled");
     }
-    if (this.thirdPanel) {
-      this.thirdPanel.enabled = false;
-      print("  - thirdPanel disabled");
+    if (this.changeColorPanel) {
+      this.changeColorPanel.enabled = false;
+      print("  - changeColorPanel disabled");
     }
   }
 
@@ -92,8 +92,8 @@ export class PanelNavigator extends BaseScriptComponent {
     }
   }
 
-  switchToThirdPanel() {
-    print("Switching to ThirdPanel...");
+  switchToChangeColorPanel() {
+    print("Switching to ChangeColorPanel...");
 
     if (this.colorPickerController) {
       this.colorPickerController.applyColor();
@@ -101,12 +101,12 @@ export class PanelNavigator extends BaseScriptComponent {
 
     this.hideAllPanels();
     
-    if (this.thirdPanel) {
-      this.thirdPanel.enabled = true;
-      print("ThirdPanel enabled: " + this.thirdPanel.enabled);
-      print("ThirdPanel name: " + this.thirdPanel.name);
+    if (this.changeColorPanel) {
+      this.changeColorPanel.enabled = true;
+      print("ChangeColorPanel enabled: " + this.changeColorPanel.enabled);
+      print("ChangeColorPanel name: " + this.changeColorPanel.name);
     } else {
-      print("ERROR: ThirdPanel is undefined!");
+      print("ERROR: ChangeColorPanel is undefined!");
     }
   }
 }
